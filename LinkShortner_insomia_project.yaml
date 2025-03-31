@@ -1,0 +1,600 @@
+type: collection.insomnia.rest/5.0
+name: ShortUrl
+meta:
+  id: wrk_c2f406dd468e4160997262f5342a563f
+  created: 1743357065345
+  modified: 1743357065345
+collection:
+  - url: "{{ _.hostname }}/auth/register"
+    name: /auth/register
+    meta:
+      id: req_449d236fff87420ca1445837373e082d
+      created: 1743362451069
+      modified: 1743369414344
+      isPrivate: false
+      sortKey: -1743362451069
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "vasin.nikita7@gmail.com",
+          "password": "my_password"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_1a1fd5499b2b433b9896d432b5a47400
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/auth/login"
+    name: /auth/login
+    meta:
+      id: req_67f8ee6e71d44c6bb8b94315f079f8d0
+      created: 1743367651347
+      modified: 1743369423582
+      isPrivate: false
+      sortKey: -1743362451019
+    method: POST
+    parameters:
+      - id: pair_1379c9221b6e4333beb1c385233cd543
+        name: email
+        value: vasin.nikita7@gmail.com
+        disabled: false
+      - id: pair_a814c82e4c1344dda3e495e66e2a453d
+        name: password
+        value: my_password
+        disabled: false
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/shorten"
+    name: /links/shorten [auth]
+    meta:
+      id: req_0e1e2eedb2e04314b256cc59b27b62be
+      created: 1743367811468
+      modified: 1743381895339
+      isPrivate: false
+      sortKey: -1743362450969
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "original_url": "https://github.com",
+          "expires_at": "2026-03-30T20:50:14.192Z"
+        }
+    parameters:
+      - id: pair_eda181e221f64518b3395d185365ee4f
+        disabled: true
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        name: Authorization
+        value: "{% response 'body', 'req_67f8ee6e71d44c6bb8b94315f079f8d0',
+          'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/shorten"
+    name: /links/shorten + allias [auth]
+    meta:
+      id: req_85721dbba19846fb80577b150f421cf0
+      created: 1743367920101
+      modified: 1743381643866
+      isPrivate: false
+      sortKey: -1743362450919
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"original_url": "https://google.com",
+        	"custom_alias": "test",
+        	"expires_at": "2026-03-30T20:50:14.192Z"
+        }
+    parameters:
+      - id: pair_eda181e221f64518b3395d185365ee4f
+        disabled: true
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        name: Authorization
+        value: "{% response 'body', 'req_67f8ee6e71d44c6bb8b94315f079f8d0',
+          'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/shorten"
+    name: /links/shorten [no_auth]
+    meta:
+      id: req_6c86f108d8474ee2b8d3d4561439bc26
+      created: 1743368011029
+      modified: 1743381814924
+      isPrivate: false
+      sortKey: -1743362450869
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"original_url": "https://google.com",
+        	"expires_at": "2026-03-30T20:50:14.192Z"
+        }
+    parameters:
+      - id: pair_eda181e221f64518b3395d185365ee4f
+        disabled: false
+    headers:
+      - id: pair_35e250b718be47ed90d567546069e8a0
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/shorten"
+    name: /links/shorten + alias [no_auth]
+    meta:
+      id: req_3c835c1d68044d9689198b9f11ed3fc6
+      created: 1743368028341
+      modified: 1743373935425
+      isPrivate: false
+      sortKey: -1743362450756.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"original_url": "https://github.com",
+        	"custom_alias": "git",
+        	"expires_at": "2026-03-30T20:50:14.192Z"
+        }
+    parameters:
+      - id: pair_eda181e221f64518b3395d185365ee4f
+        disabled: false
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/test/stats"
+    name: /links/{short_code}/stats [auth]
+    meta:
+      id: req_9cce299a328c4e9fa6e10561f4a4d5ec
+      created: 1743369525564
+      modified: 1743381934091
+      isPrivate: false
+      sortKey: -1743362450894
+    method: GET
+    parameters:
+      - id: pair_67710377e2f34fc98d2c5d9990dcf7ed
+        disabled: true
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        name: Authorization
+        value: "{% response 'body', 'req_67f8ee6e71d44c6bb8b94315f079f8d0',
+          'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/test"
+    name: /links/{short_code} [auth]
+    meta:
+      id: req_95e6cf39b7d14f1888827d670b7855c9
+      created: 1743369573190
+      modified: 1743381948902
+      isPrivate: false
+      sortKey: -1743362450881.5
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"original_url": "https://github.com",
+        	"expires_at": "2031-03-30T20:50:14.192Z"
+        }
+    parameters:
+      - id: pair_5a50c2d57709470e93ff49db0cc32408
+        disabled: true
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        name: Authorization
+        value: "{% response 'body', 'req_67f8ee6e71d44c6bb8b94315f079f8d0',
+          'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/test"
+    name: /links/{short_code} [auth]
+    meta:
+      id: req_73a9a809c05b4b029d2fdffc6edded7f
+      created: 1743369703571
+      modified: 1743381554253
+      isPrivate: false
+      sortKey: -1743362450875.25
+    method: DELETE
+    body:
+      mimeType: application/json
+    parameters:
+      - id: pair_7d2408b5bcf54216b9d0b96b4d892d17
+        disabled: false
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        name: Authorization
+        value: "{% response 'body', 'req_67f8ee6e71d44c6bb8b94315f079f8d0',
+          'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/search"
+    name: /links/search [auth]
+    meta:
+      id: req_e681a220d6ab4c878228fe1123dafed3
+      created: 1743369737525
+      modified: 1743381997073
+      isPrivate: false
+      sortKey: -1743362450873.6875
+    method: GET
+    parameters:
+      - id: pair_67710377e2f34fc98d2c5d9990dcf7ed
+        name: original_url
+        value: https://github.com/
+        disabled: false
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        name: Authorization
+        value: "{% response 'body', 'req_67f8ee6e71d44c6bb8b94315f079f8d0',
+          'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/FDlKWi/stats"
+    name: /links/{short_code}/stats [no_auth]
+    meta:
+      id: req_2899fe5d13e44177a471eb8470c27eae
+      created: 1743371774791
+      modified: 1743381834007
+      isPrivate: false
+      sortKey: -1743362450744
+    method: GET
+    parameters:
+      - id: pair_67710377e2f34fc98d2c5d9990dcf7ed
+        disabled: false
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/FDlKWi"
+    name: /links/{short_code} [no_auth]
+    meta:
+      id: req_bbc8462b49bb4906a39ce3fe6eaf8b73
+      created: 1743371935059
+      modified: 1743381837632
+      isPrivate: false
+      sortKey: -1743362450656.5
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"original_url": "https://github.com/",
+        	"expires_at": "2027-03-30T20:50:14.192Z"
+        }
+    parameters:
+      - id: pair_78a022deae7a4c16959960101433e352
+        disabled: false
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/FDlKWi"
+    name: /links/{short_code} [no_auth]
+    meta:
+      id: req_f6b171384e3e4ec7ba8f28c9f5d93327
+      created: 1743371955462
+      modified: 1743381840965
+      isPrivate: false
+      sortKey: -1743362450612.75
+    method: DELETE
+    body:
+      mimeType: application/json
+    parameters:
+      - id: pair_feaa56e102cc47adb5635db1076012c1
+        name: short_code
+        value: Esfisv
+        disabled: false
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/my"
+    name: /links/my [auth]
+    meta:
+      id: req_6c9de826ae2a4f15829fa18832f5e37f
+      created: 1743372253005
+      modified: 1743381662106
+      isPrivate: false
+      sortKey: -1743362450872.125
+    method: GET
+    body:
+      mimeType: application/json
+    parameters:
+      - id: pair_10fc5d328c334abdad042d2582c6f96f
+        disabled: true
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        name: Authorization
+        value: "{% response 'body', 'req_67f8ee6e71d44c6bb8b94315f079f8d0',
+          'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/my"
+    name: /links/my [no_auth]
+    meta:
+      id: req_4d58039c5134419aa5be7843afd40a3c
+      created: 1743373984212
+      modified: 1743374189899
+      isPrivate: false
+      sortKey: -1743362450590.875
+    method: GET
+    body:
+      mimeType: application/json
+    parameters:
+      - id: pair_10fc5d328c334abdad042d2582c6f96f
+        disabled: false
+    headers:
+      - id: pair_532944a841ca4429b95b60891b4e5035
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/FDlKWi"
+    name: /{short_code} [no_auth]
+    meta:
+      id: req_b0ca9e55bc4740749d6f69561569912b
+      created: 1743374056553
+      modified: 1743381858463
+      isPrivate: false
+      sortKey: -1743362450490.875
+    method: GET
+    parameters:
+      - id: pair_529a6a63feeb46db8ab924712c16146a
+        disabled: false
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/test"
+    name: /{short_code} [auth]
+    meta:
+      id: req_f4850f91dfb34afc88e3214e248704bb
+      created: 1743374162226
+      modified: 1743381917703
+      isPrivate: false
+      sortKey: -1743362450870.5625
+    method: GET
+    body:
+      mimeType: application/json
+    parameters:
+      - id: pair_10fc5d328c334abdad042d2582c6f96f
+        disabled: true
+    headers:
+      - id: pair_bf6191a695334129a54b835da1d496f0
+        name: Authorization
+        value: "{% response 'body', 'req_67f8ee6e71d44c6bb8b94315f079f8d0',
+          'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.hostname }}/links/search"
+    name: /links/search [no_auth]
+    meta:
+      id: req_871c4c414afc484a8252f9ab5aaa9510
+      created: 1743374305697
+      modified: 1743380720946
+      isPrivate: false
+      sortKey: -1743362450607.2812
+    method: GET
+    parameters:
+      - id: pair_67710377e2f34fc98d2c5d9990dcf7ed
+        name: original_url
+        value: https://ya.ru
+        disabled: false
+    headers:
+      - id: pair_de6547bc1a1c445182f23afb6e58fa03
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - name: spacer
+    meta:
+      id: req_e53f119a6751422d9d33965b8b343089
+      created: 1743374329479
+      modified: 1743374354477
+      isPrivate: false
+      sortKey: -1743362450870.1719
+    method: OPTIONS
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - name: spacer
+    meta:
+      id: req_7e1a58f9edb24a2aa77db5175e098827
+      created: 1743374350917
+      modified: 1743374353237
+      isPrivate: false
+      sortKey: -1743362450869.7812
+    method: OPTIONS
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - name: spacer
+    meta:
+      id: req_a0a88f3950644b1fad39d97aa3aa84a5
+      created: 1743374367533
+      modified: 1743374367533
+      isPrivate: false
+      sortKey: -1743362450869.3906
+    method: OPTIONS
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_5e8f0bbf426d9f637c501fecf4eb751ce371b73f
+    created: 1743357065349
+    modified: 1743381963919
+  cookies:
+    - key: _gh_sess
+      value: UzglpSyy532%2BCafD2D6D%2FODWPvaS37NgNbyFUhQ23qgv%2BDtZO0oQE6H6bPBlVjQexBSbPjiyNz5YeZiZ0qE84zwLL6v4ccJJd9JVE1PJidrmMjpUxQrIJKZ%2B720RAj%2FTKMkVLepVjp1HLrmDxBzyztEFneb%2BrqXmV5fKv3dOFuG56tE4wbtIYPqYd5dynDINp4pODRnw6xAzVSTCpiiaE%2F3vAtjGUb5%2Bi%2BcYJIisPVIFzFDLSkXeJlZBliWPqFBC2NX%2F3D4IfgxeweDkpImmGw%3D%3D--2bcVztCYDXf7K5xn--%2FAqqxqasEHtdzqGFsIBtIA%3D%3D
+      domain: 127.0.0.1
+      path: /
+      secure: true
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-03-30T23:44:02.651Z
+      lastAccessed: 2025-03-31T00:46:03.919Z
+      sameSite: lax
+      id: 891a9c7f-69d6-4189-9c0e-6286ffab348d
+environments:
+  name: localhost
+  meta:
+    id: env_5e8f0bbf426d9f637c501fecf4eb751ce371b73f
+    created: 1743357065347
+    modified: 1743362586342
+    isPrivate: false
+  data:
+    hostname: http://127.0.0.1:8000
