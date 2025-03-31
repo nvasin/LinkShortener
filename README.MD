@@ -42,7 +42,7 @@
 Склонируйте проект на ваш сервер или локальную машину:
 
 ```bash
-git clone <URL_репозитория>
+git clone https://github.com/nvasin/LinkShortener.git
 cd ShortLinks
 ```
 
