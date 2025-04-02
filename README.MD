@@ -143,4 +143,31 @@ docker-compose ps
 - Миграции базы данных:
 Миграции выполняются автоматически при запуске контейнера через скрипт entrypoint.sh.
 - Кэширование: 
+Redis используется для кэширования редиректов, чтобы ускорить обработку запросов.<<<<<<< Updated upstream
 Redis используется для кэширования редиректов, чтобы ускорить обработку запросов.
+=======
+Redis используется для кэширования редиректов, чтобы ускорить обработку запросов.  
+
+### Тесты  
+- Запуск тестов осуществляется из Docker
+```bash
+docker exec -it fastapi_app sh
+```
+```bash
+pytest --cov=app --cov-report=html
+```
+- Забираем отчет
+```bash
+cd app/htmlcov
+```
+-Запуск нагрузки  
+```bash
+locust -f locustfile.py --host=http://localhost:8000
+```
+
+Результаты тестов  
+coverage.png - покрытие 
+![coverage](coverage.png)
+locust.png - нагрузка  
+![locust](locust.png)
+>>>>>>> Stashed changes

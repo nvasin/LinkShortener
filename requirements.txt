@@ -8,3 +8,7 @@ jwt
 pydantic
 pydantic[email]
 apscheduler
+pytest
+locust
+httpx
+pytest-cov
